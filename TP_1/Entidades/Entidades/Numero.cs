@@ -90,9 +90,10 @@ namespace Entidades
         {
             string binario = "";
             string retorno = "";
+            bool esBinario = true;
             int i;
 
-
+            
             //Tomo el valor absoluto y la parte entera
             numero = (int) Math.Abs(numero);
 
@@ -136,6 +137,21 @@ namespace Entidades
             for (i = binario.Length - 1; i >= 0; i--)
             {
                 retorno += binario[i];
+            }
+
+            for (i = 0; i < binario.Length; i++)
+            {
+                if (binario[i] != '1' && binario[i] != '0')//no es binario
+                {
+                    esBinario = false;
+                    break;
+
+                }
+            }
+
+            if(esBinario == false)
+            {
+                retorno = "Valor inválido";
             }
 
             return retorno;

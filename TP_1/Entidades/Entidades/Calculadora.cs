@@ -31,14 +31,12 @@ namespace Entidades
                     break;
 
                 case "/":
-                    //if ()
+                    resultado = num1 / num2;
                     
-                        resultado = num1 / num2;
-                    
-                    //else//si es una división por cero
-                    //{
-                    //    resultado = double.MinValue;
-                    //}
+                    if(Double.IsInfinity(resultado))
+                    {
+                        resultado = double.MinValue;
+                    }
                     break;
             }
 

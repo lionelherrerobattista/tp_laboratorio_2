@@ -67,6 +67,7 @@ namespace MiCalculadora
             txtNumero1.Clear();
             cmbOperador.Text = "";
             txtNumero2.Clear();
+            lblResultado.Text = "";
 
         }
 
