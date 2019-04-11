@@ -50,19 +50,20 @@ namespace Entidades
             int j = 0;
             double numeroDecimal = 0;
             string resultado = "Valor inválido";
-            bool noBinario = false;
+            bool esBinario = true;
 
             //Busco hay algún número que no sea 0 ni 1
-            for (i = 0; i < binario.Length - 1; i++)
+            for (i = 0; i < binario.Length; i++)
             {
-                if (binario[i] > 1)//no es binario
+                if (binario[i] != '1' && binario[i] != '0')//no es binario
                 {
-                    noBinario = true;
+                    esBinario = false;
+                    break;
 
                 }
             }
 
-            if (noBinario == false)
+            if (esBinario)
             {
                 for (i = binario.Length - 1; i >= 0; i--)
                 {
