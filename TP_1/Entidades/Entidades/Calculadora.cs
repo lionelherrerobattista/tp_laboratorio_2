@@ -10,7 +10,7 @@ namespace Entidades
     {
         public static double Operar(Numero num1, Numero num2, string operador)
         {
-            double resultado;
+            double resultado = 0;
 
             //valido el operador
             operador = Calculadora.ValidarOperador(operador);
@@ -31,14 +31,14 @@ namespace Entidades
                     break;
 
                 case "/":
-                    if (num2 != 0)
-                    {
+                    //if ()
+                    
                         resultado = num1 / num2;
-                    }
-                    else//si es una división por cero
-                    {
-                        resultado = double.MinValue;
-                    }
+                    
+                    //else//si es una división por cero
+                    //{
+                    //    resultado = double.MinValue;
+                    //}
                     break;
             }
 

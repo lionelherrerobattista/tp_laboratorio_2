@@ -42,16 +42,7 @@ namespace Entidades
             this.SetNumero = strNumero;  
         }
 
-        //Validaciones
-        //
-        private static double ValidarNumero(string strNumero)
-        {
-            double numero;
 
-            Double.TryParse(strNumero, out numero);
-
-            return numero;
-        }
 
         public static string BinarioDecimal(string binario)
         {
@@ -73,7 +64,7 @@ namespace Entidades
 
             }//fin del for
 
-            return numeroDecimal;
+            return numeroDecimal.ToString();
 
         }
 
@@ -125,11 +116,68 @@ namespace Entidades
         public static string DecimalBinario(string numero)
         {
             double numeroDouble;
+            string numeroString;
 
-            Double.TryParse(numero, numeroDouble);
+            if(Double.TryParse(numero, out numeroDouble))
+            {
+                numeroString = Numero.DecimalBinario(numeroDouble);
+            }
+            else
+            {
+                numeroString = "Valor inválido";
+            }
 
-            return Numero.DecimalBinario(numeroDouble);
+            return numeroString;
 
+        }
+
+        //Sobrecarga de operadores
+        //
+        public static double operator -(Numero n1, Numero n2)
+        {
+            double resultado;
+
+            resultado = n1.numero - n2.numero;
+
+            return resultado;
+        }
+
+        public static double operator *(Numero n1, Numero n2)
+        {
+            double resultado;
+
+            resultado = n1.numero * n2.numero;
+
+            return resultado;
+        }
+
+        public static double operator /(Numero n1, Numero n2)
+        {
+            double resultado;
+
+            resultado = n1.numero / n2.numero;
+
+            return resultado;
+        }
+
+        public static double operator +(Numero n1, Numero n2)
+        {
+            double resultado;
+
+            resultado = n1.numero + n2.numero;
+
+            return resultado;
+        }
+
+        //Validaciones
+        //
+        private static double ValidarNumero(string strNumero)
+        {
+            double numero;
+
+            Double.TryParse(strNumero, out numero);
+
+            return numero;
         }
     }
 }

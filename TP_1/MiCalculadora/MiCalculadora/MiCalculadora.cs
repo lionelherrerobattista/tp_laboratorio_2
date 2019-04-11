@@ -16,5 +16,10 @@ namespace MiCalculadora
         {
             InitializeComponent();
         }
+
+        private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
