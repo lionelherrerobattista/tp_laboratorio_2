@@ -49,22 +49,39 @@ namespace Entidades
             int i;
             int j = 0;
             double numeroDecimal = 0;
+            string resultado = "Valor inválido";
+            bool noBinario = false;
 
-            for (i = binario.Length - 1; i >= 0; i--)
+            //Busco hay algún número que no sea 0 ni 1
+            for (i = 0; i < binario.Length - 1; i++)
             {
-
-                if (binario[i] == '1')//si es 1 en binario
+                if (binario[i] > 1)//no es binario
                 {
-                    //lo multiplico por 2 ^ a la posición y los sumo
-                    numeroDecimal += Math.Pow(2, j);
+                    noBinario = true;
+
                 }
+            }
 
-                //Aumento la potencia
-                j++;
+            if (noBinario == false)
+            {
+                for (i = binario.Length - 1; i >= 0; i--)
+                {
 
-            }//fin del for
+                    if (binario[i] == '1')//si es 1 en binario
+                    {
+                        //lo multiplico por 2 ^ a la posición y los sumo
+                        numeroDecimal += Math.Pow(2, j);
+                    }
 
-            return numeroDecimal.ToString();
+                    //Aumento la potencia
+                    j++;
+
+                }//fin del for
+
+                resultado = numeroDecimal.ToString();
+            }
+
+            return resultado;
 
         }
 
@@ -74,13 +91,31 @@ namespace Entidades
             string retorno = "";
             int i;
 
-            //Tomo el valor absoluto
-            numero = Math.Abs(numero);
 
-            do
+            //Tomo el valor absoluto y la parte entera
+            numero = (int) Math.Abs(numero);
+
+            if (numero > 1)
             {
-                //Si es par
-                if (numero % 2 == 0)
+                do
+                {
+                    //Si es par
+                    if (numero % 2 == 0)
+                    {
+                        binario += "0";
+                    }
+                    else
+                    {
+                        binario += "1";
+                    }
+
+                    //divido (tomo la parte entera)
+                    numero = (int)numero / 2;
+
+                } while (numero > 1);
+
+                //Agrego el último número
+                if (numero == 0)
                 {
                     binario += "0";
                 }
@@ -89,20 +124,12 @@ namespace Entidades
                     binario += "1";
                 }
 
-                //divido (tomo la parte entera)
-                numero = (int)numero / 2;
-
-            } while (numero > 1);
-
-            //Agrego el último número
-            if (numero == 0)
-            {
-                binario += "0";
             }
             else
             {
-                binario += "1";
+                binario = numero.ToString();
             }
+
 
             //doy vuelta el número
             for (i = binario.Length - 1; i >= 0; i--)
@@ -117,6 +144,8 @@ namespace Entidades
         {
             double numeroDouble;
             string numeroString;
+
+
 
             if(Double.TryParse(numero, out numeroDouble))
             {

@@ -28,7 +28,7 @@ namespace MiCalculadora
             double resultado;
 
             //Llamo a la función Operar
-            resultado = FormCalculadora.Operar(txtNumero1.Text,
+            resultado = Operar(txtNumero1.Text,
                   txtNumero2.Text, cmbOperador.Text);
 
             //Lo muestro en el label
@@ -58,10 +58,26 @@ namespace MiCalculadora
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
             //Limpio todos los valores
             txtNumero1.Clear();
-            cmbOperador.SelectedIndex = -1;
+            cmbOperador.Text = "";
             txtNumero2.Clear();
+
+        }
+
+        private void btnConvertirABinario_Click(object sender, EventArgs e)
+        {
+            lblResultado.Text = Numero.DecimalBinario(lblResultado.Text);
+        }
+
+        private void btnConvertirADecimal_Click(object sender, EventArgs e)
+        {
+            lblResultado.Text = Numero.BinarioDecimal(lblResultado.Text);
         }
     }
 }
