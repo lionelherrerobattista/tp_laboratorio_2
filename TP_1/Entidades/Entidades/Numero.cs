@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Numero
+    public class Numero
     {
         ///Atributos
 
@@ -34,7 +34,7 @@ namespace Entidades
 
         public Numero(double numero)
         {
-            this.numero = numero;
+            new Numero(numero.ToString());
         }
 
         public Numero(string strNumero)
