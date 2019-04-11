@@ -31,6 +31,7 @@ namespace MiCalculadora
             resultado = Operar(txtNumero1.Text,
                   txtNumero2.Text, cmbOperador.Text);
 
+            
             //Lo muestro en el label
             lblResultado.Text = resultado.ToString();
 
