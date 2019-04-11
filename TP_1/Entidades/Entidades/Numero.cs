@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,13 +14,11 @@ namespace Entidades
 
         ///Propiedades
 
-        private string SetNumero
+        private void SetNumero(string numero)
         {
-            set
-            {
-                //valido el numero y lo seteo
-                this.numero = Numero.ValidarNumero(value);        
-            }
+
+              //valido el numero y lo seteo
+              this.numero = Numero.ValidarNumero(numero);        
         }
 
         ///Métodos
@@ -38,8 +36,8 @@ namespace Entidades
         }
 
         public Numero(string strNumero)
-        {
-            this.SetNumero = strNumero;  
+        {    
+            this.SetNumero(strNumero);  
         }
 
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,6 +35,7 @@ namespace Entidades
                     
                     if(Double.IsInfinity(resultado))
                     {
+                      
                         resultado = double.MinValue;
                     }
                     break;
