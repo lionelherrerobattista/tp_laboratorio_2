@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 { 
-    public class Calculadora
+    public static class Calculadora
     {
         /// <summary>
         /// Realiza la operación indicada entre los datos de tipo Numero

@@ -21,14 +21,14 @@ namespace Entidades
         private void SetNumero(string numero)
         {      
             //valido el numero y lo seteo
-            this.numero = Numero.ValidarNumero(numero);
+            this.numero = ValidarNumero(numero);
         }
 
         //Constructores
         //
         /// <summary>
-        /// Crea un objeto del tipo Numero, asigna valor 0
-        /// al atributo numero
+        /// Constructor por defecto. Crea un objeto del tipo Numero,
+        /// asigna valor 0 al atributo numero
         /// </summary>
         public Numero()
         {
@@ -68,7 +68,7 @@ namespace Entidades
             string resultado = "Valor inválido";
             bool esBinario = true;
 
-            //Busco hay algún número que no sea 0 ni 1
+            //Busco si hay algún número que no sea 0 ni 1
             for (i = 0; i < binario.Length; i++)
             {
                 if (binario[i] != '1' && binario[i] != '0')//no es binario
@@ -111,14 +111,14 @@ namespace Entidades
         {
             string binario = "";
             string retorno = "";
-            bool esBinario = true;
+            //bool esBinario = true;
             int i;
 
             
             //Tomo el valor absoluto y la parte entera
             numero = (int) Math.Abs(numero);
 
-            if (numero > 1)
+            if (numero > 1)//valor binario tiene más de una cifra
             {
                 do
                 {
@@ -147,19 +147,24 @@ namespace Entidades
                     binario += "1";
                 }
 
+                //doy vuelta el número para que quede con el formato correcto
+                for (i = binario.Length - 1; i >= 0; i--)
+                {
+                    retorno += binario[i];
+                }
+
+            }
+            else if(numero == 0 || numero == 1)//si es 0 o 1
+            {
+                retorno = numero.ToString();
             }
             else
             {
-                binario = numero.ToString();
+                retorno = "Valor inválido";
             }
 
-
-            //doy vuelta el número
-            for (i = binario.Length - 1; i >= 0; i--)
-            {
-                retorno += binario[i];
-            }
-
+            /*
+            //Compruebo que haya quedado un número binario:
             for (i = 0; i < binario.Length; i++)
             {
                 if (binario[i] != '1' && binario[i] != '0')//no es binario
@@ -173,7 +178,7 @@ namespace Entidades
             if(esBinario == false)
             {
                 retorno = "Valor inválido";
-            }
+            }*/
 
             return retorno;
         }
@@ -192,7 +197,7 @@ namespace Entidades
 
             if(Double.TryParse(numero, out numeroDouble))
             {
-                numeroString = Numero.DecimalBinario(numeroDouble);
+                numeroString = DecimalBinario(numeroDouble);
             }
             else
             {

@@ -28,8 +28,7 @@ namespace MiCalculadora
             double resultado;
 
             //Llamo a la función Operar
-            resultado = Operar(txtNumero1.Text,
-                  txtNumero2.Text, cmbOperador.Text);
+            resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
 
             
             //Lo muestro en el label
@@ -53,7 +52,7 @@ namespace MiCalculadora
             Numero num1 = new Numero(numero1);
             Numero num2 = new Numero(numero2);
 
-            //Llamo a la función operar
+            //Llamo a la función operar que devuelve el resultado
             resultado = Calculadora.Operar(num1, num2, operador);
 
             return resultado;
@@ -67,7 +66,8 @@ namespace MiCalculadora
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            Limpiar();
+            
+            Limpiar();//Llamo al método limpiar
         }
 
         /// <summary>
