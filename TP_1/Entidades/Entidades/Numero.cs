@@ -12,36 +12,54 @@ namespace Entidades
 
         private double numero;
 
-        ///Propiedades
+        //Métodos
 
+        /// <summary>
+        /// Asigna al atributo numero el parámetro que se le pasa al método
+        /// </summary>
+        /// <param name="numero">valor que se va a asignar al atributo número</param>
         private void SetNumero(string numero)
-        {
-
-              //valido el numero y lo seteo
-              this.numero = Numero.ValidarNumero(numero);        
+        {      
+            //valido el numero y lo seteo
+            this.numero = Numero.ValidarNumero(numero);
         }
 
-        ///Métodos
-        
         //Constructores
         //
+        /// <summary>
+        /// Crea un objeto del tipo Numero, asigna valor 0
+        /// al atributo numero
+        /// </summary>
         public Numero()
         {
             new Numero(0);
         }
 
+        /// <summary>
+        /// Construye un objeto de tipo Numero con el atributo asignado
+        ///  a partir del valor del parámetro double que se le pasa
+        /// </summary>
+        /// <param name="numero">valor que se le va a asignar al atributo numero</param>
         public Numero(double numero)
         {
             new Numero(numero.ToString());
         }
 
+        /// <summary>
+        /// Construye un objeto del tipo número
+        /// </summary>
+        /// <param name="strNumero">valor que se le va a asignar al parámetro numero</param>
         public Numero(string strNumero)
         {    
             this.SetNumero(strNumero);  
         }
 
 
-
+        /// <summary>
+        /// Convierte un número binario a decimal
+        /// </summary>
+        /// <param name="binario">número binario a convertir</param>
+        /// <returns>número decimal</returns>
         public static string BinarioDecimal(string binario)
         {
             int i;
@@ -75,7 +93,7 @@ namespace Entidades
                     //Aumento la potencia
                     j++;
 
-                }//fin del for
+                }
 
                 resultado = numeroDecimal.ToString();
             }
@@ -84,6 +102,11 @@ namespace Entidades
 
         }
 
+        /// <summary>
+        /// Convierte un número decimal a binario
+        /// </summary>
+        /// <param name="numero">número decimal a convertir</param>
+        /// <returns>número binario</returns>
         public static string DecimalBinario(double numero)
         {
             string binario = "";
@@ -155,6 +178,11 @@ namespace Entidades
             return retorno;
         }
 
+        /// <summary>
+        /// Convierte un número decimal a binario
+        /// </summary>
+        /// <param name="numero">número decimal a convertir</param>
+        /// <returns>número binario</returns>
         public static string DecimalBinario(string numero)
         {
             double numeroDouble;
@@ -177,6 +205,14 @@ namespace Entidades
 
         //Sobrecarga de operadores
         //
+
+        /// <summary>
+        /// Sobrecarga el operador - para realizar operaciones entre 
+        /// dos objetos del tipo Numero
+        /// </summary>
+        /// <param name="n1">Objeto de tipo Numero</param>
+        /// <param name="n2">Objeto de tipo Numero</param>
+        /// <returns>El resultado de la operación</returns>
         public static double operator -(Numero n1, Numero n2)
         {
             double resultado;
@@ -186,6 +222,13 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Sobrecarga el operador * para realizar operaciones entre 
+        /// dos objetos del tipo Numero
+        /// </summary>
+        /// <param name="n1">Objeto de tipo Numero</param>
+        /// <param name="n2">Objeto de tipo Numero</param>
+        /// <returns>El resultado de la operación</returns>
         public static double operator *(Numero n1, Numero n2)
         {
             double resultado;
@@ -195,6 +238,13 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Sobrecarga el operador / para realizar operaciones entre 
+        /// dos objetos del tipo Numero
+        /// </summary>
+        /// <param name="n1">Objeto de tipo Numero</param>
+        /// <param name="n2">Objeto de tipo Numero</param>
+        /// <returns>El resultado de la operación</returns>
         public static double operator /(Numero n1, Numero n2)
         {
             double resultado;
@@ -204,6 +254,13 @@ namespace Entidades
             return resultado;
         }
 
+        /// <summary>
+        /// Sobrecarga el operador + para realizar operaciones entre 
+        /// dos objetos del tipo Numero
+        /// </summary>
+        /// <param name="n1">Objeto de tipo Numero</param>
+        /// <param name="n2">Objeto de tipo Numero</param>
+        /// <returns>El resultado de la operación</returns>
         public static double operator +(Numero n1, Numero n2)
         {
             double resultado;
@@ -215,6 +272,13 @@ namespace Entidades
 
         //Validaciones
         //
+
+        /// <summary>
+        /// Valida que la cadena ingresada sea un número válido
+        /// de lo contrario devuelve 0
+        /// </summary>
+        /// <param name="strNumero">Número que quiero validar</param>
+        /// <returns>Número validado en formato double, en caso contrario devuelve 0</returns>
         private static double ValidarNumero(string strNumero)
         {
             double numero;
