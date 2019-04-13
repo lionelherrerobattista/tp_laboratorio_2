@@ -37,6 +37,14 @@ namespace MiCalculadora
 
         }
 
+        /// <summary>
+        /// Llama al método Operar de la calculadora 
+        /// y realiza la operación indicada
+        /// </summary>
+        /// <param name="numero1">Primer numero con el que se desea operar</param>
+        /// <param name="numero2">Segundo numero con el que se desea operar</param>
+        /// <param name="operador">Operador a utilizar</param>
+        /// <returns>Resultado de la operación</returns>
         private static double Operar(string numero1, string numero2, string operador)
         {
             double resultado;
@@ -62,6 +70,9 @@ namespace MiCalculadora
             Limpiar();
         }
 
+        /// <summary>
+        /// Limpia los datos que muestra la calculadora
+        /// </summary>
         private void Limpiar()
         {
             //Limpio todos los valores
@@ -71,6 +82,7 @@ namespace MiCalculadora
             lblResultado.Text = "";
 
         }
+
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
