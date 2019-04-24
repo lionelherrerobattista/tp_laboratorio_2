@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 
+
 namespace MiCalculadora
 {
     public partial class FormCalculadora : Form
@@ -18,20 +19,12 @@ namespace MiCalculadora
             InitializeComponent();
         }
 
-        private void cmbOperador_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnOperar_Click(object sender, EventArgs e)
         {
             double resultado;
 
-            //Llamo a la función Operar
             resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
 
-            
-            //Lo muestro en el label
             lblResultado.Text = resultado.ToString();
 
         }
@@ -67,7 +60,7 @@ namespace MiCalculadora
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             
-            Limpiar();//Llamo al método limpiar
+            Limpiar();
         }
 
         /// <summary>

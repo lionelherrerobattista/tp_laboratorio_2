@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,19 +8,14 @@ namespace Entidades
 {
     public class Numero
     {
-        ///Atributos
-
         private double numero;
-
-        //Métodos
 
         /// <summary>
         /// Asigna al atributo numero el parámetro que se le pasa al método
         /// </summary>
         /// <param name="numero">valor que se va a asignar al atributo número</param>
         private void SetNumero(string numero)
-        {      
-            //valido el numero y lo seteo
+        {
             this.numero = ValidarNumero(numero);
         }
 
@@ -32,7 +27,7 @@ namespace Entidades
         /// </summary>
         public Numero() : this(0)
         {
-            
+
         }
 
         /// <summary>
@@ -50,8 +45,8 @@ namespace Entidades
         /// </summary>
         /// <param name="strNumero">valor que se le va a asignar al parámetro numero</param>
         public Numero(string strNumero)
-        {    
-            this.SetNumero(strNumero);  
+        {
+            this.SetNumero(strNumero);
         }
 
 
@@ -68,7 +63,6 @@ namespace Entidades
             string resultado = "Valor inválido";
             bool esBinario = true;
 
-            //Busco si hay algún número que no sea 0 ni 1
             for (i = 0; i < binario.Length; i++)
             {
                 if (binario[i] != '1' && binario[i] != '0')//no es binario
@@ -84,13 +78,11 @@ namespace Entidades
                 for (i = binario.Length - 1; i >= 0; i--)
                 {
 
-                    if (binario[i] == '1')//si es 1 en binario
+                    if (binario[i] == '1')
                     {
-                        //lo multiplico por 2 ^ a la posición y los sumo
                         numeroDecimal += Math.Pow(2, j);
                     }
 
-                    //Aumento la potencia
                     j++;
 
                 }
@@ -111,18 +103,14 @@ namespace Entidades
         {
             string binario = "";
             string retorno = "";
-            //bool esBinario = true;
             int i;
 
-            
-            //Tomo el valor absoluto y la parte entera
-            numero = (int) Math.Abs(numero);
+            numero = (int)Math.Abs(numero);
 
-            if (numero > 1)//valor binario tiene más de una cifra
+            if (numero > 1)
             {
                 do
                 {
-                    //Si es par
                     if (numero % 2 == 0)
                     {
                         binario += "0";
@@ -132,12 +120,10 @@ namespace Entidades
                         binario += "1";
                     }
 
-                    //divido (tomo la parte entera)
                     numero = (int)numero / 2;
 
                 } while (numero > 1);
 
-                //Agrego el último número
                 if (numero == 0)
                 {
                     binario += "0";
@@ -147,14 +133,14 @@ namespace Entidades
                     binario += "1";
                 }
 
-                //doy vuelta el número para que quede con el formato correcto
+
                 for (i = binario.Length - 1; i >= 0; i--)
                 {
                     retorno += binario[i];
                 }
 
             }
-            else if(numero == 0 || numero == 1)//si es 0 o 1
+            else if (numero == 0 || numero == 1)//si es 0 o 1
             {
                 retorno = numero.ToString();
             }
@@ -162,23 +148,6 @@ namespace Entidades
             {
                 retorno = "Valor inválido";
             }
-
-            /*
-            //Compruebo que haya quedado un número binario:
-            for (i = 0; i < binario.Length; i++)
-            {
-                if (binario[i] != '1' && binario[i] != '0')//no es binario
-                {
-                    esBinario = false;
-                    break;
-
-                }
-            }
-
-            if(esBinario == false)
-            {
-                retorno = "Valor inválido";
-            }*/
 
             return retorno;
         }
@@ -193,9 +162,7 @@ namespace Entidades
             double numeroDouble;
             string numeroString;
 
-
-
-            if(Double.TryParse(numero, out numeroDouble))
+            if (Double.TryParse(numero, out numeroDouble))
             {
                 numeroString = DecimalBinario(numeroDouble);
             }
@@ -207,9 +174,6 @@ namespace Entidades
             return numeroString;
 
         }
-
-        //Sobrecarga de operadores
-        //
 
         /// <summary>
         /// Sobrecarga el operador - para realizar operaciones entre 
@@ -294,3 +258,4 @@ namespace Entidades
         }
     }
 }
+
