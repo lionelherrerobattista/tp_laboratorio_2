@@ -37,14 +37,14 @@ namespace Entidades_2018
         /// Sobreescribe el método Mostrar de la clase Producto
         /// y muestra los datos de la clase Dulce
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve la información del Dulce</returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("DULCE");
             sb.AppendLine(base.Mostrar());
-            sb.AppendFormat("CALORIAS : {0}\n", this.CantidadCalorias);
+            sb.AppendFormat("CALORIAS : {0} ", this.CantidadCalorias);
             sb.AppendLine("");
             sb.AppendLine("---------------------");
 

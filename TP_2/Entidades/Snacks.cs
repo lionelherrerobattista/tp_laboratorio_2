@@ -34,7 +34,7 @@ namespace Entidades_2018
         /// Sobreescribe el método Mostrar de la clase Producto y muestra los datos
         /// del Snack
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Devuelve la información del Snack</returns>
         public override sealed string Mostrar()
         {
             StringBuilder sb = new StringBuilder();

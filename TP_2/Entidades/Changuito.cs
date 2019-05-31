@@ -42,7 +42,7 @@ namespace Entidades_2018
         /// <summary>
         /// Muestro el Changuito y TODOS los Productos
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Datos de todos los productos en el Changuito</returns>
         public override string ToString()
         {
             return this.Mostrar(this, ETipo.Todos);
@@ -57,7 +57,7 @@ namespace Entidades_2018
         /// </summary>
         /// <param name="c">Elemento a exponer</param>
         /// <param name="ETipo">Tipos de ítems de la lista a mostrar</param>
-        /// <returns></returns>
+        /// <returns>Datos del elemento y su lista</returns>
         public string Mostrar(Changuito c, ETipo tipo)
         {
             StringBuilder sb = new StringBuilder();
@@ -98,7 +98,7 @@ namespace Entidades_2018
         /// </summary>
         /// <param name="c">Objeto donde se agregará el elemento</param>
         /// <param name="p">Objeto a agregar</param>
-        /// <returns></returns>
+        /// <returns>Changuito con el producto agregado</returns>
         public static Changuito operator +(Changuito c, Producto p)
         {
             if(c.espacioDisponible > c.productos.Count)
@@ -120,7 +120,7 @@ namespace Entidades_2018
         /// </summary>
         /// <param name="c">Objeto donde se quitará el elemento</param>
         /// <param name="p">Objeto a quitar</param>
-        /// <returns></returns>
+        /// <returns>Changuito sin el producto indicado</returns>
         public static Changuito operator -(Changuito c, Producto p)
         {
             foreach (Producto v in c.productos)

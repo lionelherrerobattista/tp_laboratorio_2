@@ -69,18 +69,19 @@ namespace Entidades_2018
         /// <summary>
         /// Dos productos son iguales si comparten el mismo código de barras
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
+        /// <param name="v1">Producto uno</param>
+        /// <param name="v2">Producto dos</param>
         /// <returns></returns>
         public static bool operator ==(Producto v1, Producto v2)
         {
             return (v1.codigoDeBarras == v2.codigoDeBarras);
         }
+
         /// <summary>
         /// Dos productos son distintos si su código de barras es distinto
         /// </summary>
-        /// <param name="v1"></param>
-        /// <param name="v2"></param>
+        /// <param name="v1">Producto uno</param>
+        /// <param name="v2">Producto dos</param>
         /// <returns></returns>
         public static bool operator !=(Producto v1, Producto v2)
         {
