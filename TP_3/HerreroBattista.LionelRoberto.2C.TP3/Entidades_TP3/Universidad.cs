@@ -89,14 +89,37 @@ namespace Entidades_TP3
 
     }
 
-    private string MostrarDatos(Universidad uni)
+    private static string MostrarDatos(Universidad uni)
     {
-
+      return uni.ToString();
     }
 
     public override string ToString()
     {
-      return base.ToString();
+      string datos;
+
+      datos = "ALUMNOS";
+
+      foreach(Alumno alumno in this.Alumnos)
+      {
+        datos = String.Format("{0}\n{1}", datos, alumno.ToString());
+      }
+
+      datos = String.Format("{0}\n{1}", datos, "JORNADAS");
+
+      foreach(Jornada jornada in this.Jornadas)
+      {
+        datos = String.Format("{0}\n{1}", datos, jornada.ToString());
+      }
+
+      datos = String.Format("{0}\n{1}", datos, "PROFESORES");
+
+      foreach (Profesor profesor in this.Instructores)
+      {
+        datos = String.Format("{0}\n{1}", datos, this.Instructores);
+      }
+
+      return datos;
     }
 
     public static bool operator !=(Universidad g, Alumno a)
@@ -106,25 +129,33 @@ namespace Entidades_TP3
 
     public static bool operator !=(Universidad g, Profesor i)
     {
-
+      return !(g != i);
     }
 
     public static Profesor operator !=(Universidad g, EClases clase)
     {
+      Profesor auxProfesor = null;
 
+      foreach (Profesor profesor in g.Instructores)
+      {
+        if (profesor != clase)
+        {
+          auxProfesor = profesor;
+          break;
+        }
+      }
+
+      return auxProfesor;
     }
 
     public static Universidad operator +(Universidad g, EClases clase)
     {
       Jornada nuevaJornada = null;
+      Profesor profesor;
 
-      foreach(Profesor profesor in g.Instructores)
-      {
-        if(profesor == clase)
-        {
-          nuevaJornada = new Jornada(clase, profesor);
-        }
-      }
+      profesor = (g == clase);
+     
+      nuevaJornada = new Jornada(clase, profesor);
 
       foreach(Alumno alumno in g.Alumnos)
       {
@@ -142,12 +173,22 @@ namespace Entidades_TP3
 
     public static Universidad operator +(Universidad g, Alumno a)
     {
+      if(g != a)
+      {
+        g.Alumnos.Add(a);
+      }
 
+      return g;
     }
 
     public static Universidad operator +(Universidad g, Profesor i)
     {
+      if(g != i)
+      {
+        g.Instructores.Add(i);
+      }
 
+      return g;
     }
 
     public static bool operator ==(Universidad g, Alumno a)
@@ -182,7 +223,23 @@ namespace Entidades_TP3
 
     public static Profesor operator ==(Universidad g, EClases clase)
     {
+      Profesor auxProfesor = null;
 
+      foreach (Profesor profesor in g.Instructores)
+      {
+        if (profesor == clase)
+        {
+          auxProfesor = profesor;
+          break;
+        }
+      }
+
+      if(auxProfesor == null)
+      {
+        throw new SinProfesorException();
+      }
+
+      return auxProfesor;
     }
   }
 }
