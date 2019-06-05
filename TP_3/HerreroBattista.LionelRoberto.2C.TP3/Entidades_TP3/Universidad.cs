@@ -30,11 +30,11 @@ namespace Entidades_TP3
     {
       get
       {
-
+        return this.alumnos;
       }
       set
       {
-
+        this.alumnos = value;
       }
     }
 
@@ -42,11 +42,11 @@ namespace Entidades_TP3
     {
       get
       {
-
+        return this.profesores;
       }
       set
       {
-
+        this.profesores = value;
       }
     }
 
@@ -54,11 +54,11 @@ namespace Entidades_TP3
     {
       get
       {
-
+        return this.jornadas;
       }
       set
       {
-
+        this.jornadas = value;
       }
     }
 
@@ -101,7 +101,7 @@ namespace Entidades_TP3
 
     public static bool operator !=(Universidad g, Alumno a)
     {
-
+      return !(g == a);
     }
 
     public static bool operator !=(Universidad g, Profesor i)
@@ -116,7 +116,28 @@ namespace Entidades_TP3
 
     public static Universidad operator +(Universidad g, EClases clase)
     {
+      Jornada nuevaJornada = null;
 
+      foreach(Profesor profesor in g.Instructores)
+      {
+        if(profesor == clase)
+        {
+          nuevaJornada = new Jornada(clase, profesor);
+        }
+      }
+
+      foreach(Alumno alumno in g.Alumnos)
+      {
+        if(alumno == clase)
+        {
+          nuevaJornada.Alumnos.Add(alumno);
+        }
+      }
+
+      g.Jornadas.Add(nuevaJornada);
+
+      return g;
+      
     }
 
     public static Universidad operator +(Universidad g, Alumno a)
@@ -131,12 +152,32 @@ namespace Entidades_TP3
 
     public static bool operator ==(Universidad g, Alumno a)
     {
+      bool sonIguales = false;
 
+      foreach(Alumno auxAlumno in g.Alumnos)
+      {
+        if(auxAlumno == a)
+        {
+          sonIguales = true;
+        }
+      }
+
+      return sonIguales;
     }
 
     public static bool operator ==(Universidad g, Profesor i)
     {
+      bool sonIguales = false;
 
+      foreach(Profesor auxProfesor in g.Instructores)
+      {
+        if(auxProfesor == i)
+        {
+          sonIguales = true;
+        }
+      }
+
+      return sonIguales;
     }
 
     public static Profesor operator ==(Universidad g, EClases clase)
