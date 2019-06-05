@@ -35,14 +35,14 @@ namespace Entidades_TP3
 
         public override bool Equals(object obj)
         {
-            bool sonIguales = false;
+            bool mismoTipo = false;
 
             if(obj is Universitario)
             {
-                sonIguales = true;
+                mismoTipo = true;
             }
 
-            return sonIguales;
+            return mismoTipo;
         }
 
         public static bool operator ==(Universitario pg1, Universitario pg2)
