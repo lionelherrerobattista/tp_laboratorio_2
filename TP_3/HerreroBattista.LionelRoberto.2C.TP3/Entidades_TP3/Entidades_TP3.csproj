@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Alumno.cs" />
     <Compile Include="AlumnoRepetidoException.cs" />
+    <Compile Include="ArchivosException.cs" />
     <Compile Include="DniInvalidoException.cs" />
     <Compile Include="IArchivo.cs" />
     <Compile Include="Jornada.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="SinProfesorException.cs" />
     <Compile Include="Universidad.cs" />
     <Compile Include="Universitario.cs" />
+    <Compile Include="Xml.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Entidades_TP3
 {
@@ -86,7 +87,13 @@ namespace Entidades_TP3
 
     public bool Guardar(Universidad uni)
     {
+      string archivo;
 
+      Xml<string> archivoxml = new Xml<string>();
+
+      archivo = String.Format("{0}\\Archivos\\Universidad.xml", Directory.GetCurrentDirectory());
+
+      return archivoxml.Guardar(archivo, uni.ToString());
     }
 
     private static string MostrarDatos(Universidad uni)
