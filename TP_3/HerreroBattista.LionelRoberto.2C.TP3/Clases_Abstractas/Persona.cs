@@ -163,8 +163,15 @@ namespace EntidadesAbstractas
                 throw new DniInvalidoException();
             }
 
-
-            dniValidado = this.ValidarDni(nacionalidad, dniValidado);
+            try
+            {
+                dniValidado = this.ValidarDni(nacionalidad, dniValidado);
+            }
+            catch(Exception e)
+            {
+                throw new DniInvalidoException(e);
+            }
+            
 
             return dniValidado;
 

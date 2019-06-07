@@ -11,13 +11,13 @@ namespace Entidades_TP3
         private string mensajeBase;
 
         public DniInvalidoException()
-            : base()
+            : base("DNI Inválido.")
         {
 
         }
 
         public DniInvalidoException(Exception e)
-            : base("", e)
+            : base("DNI Inválido.", e)
         {
 
         }
