@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entidades_TP3;
 
-namespace Entidades_TP3
+
+namespace EntidadesAbstractas
 {
     public abstract class Persona
     {
@@ -62,7 +64,7 @@ namespace Entidades_TP3
         {
             get
             {
-                return this.DNI;
+                return this.dni;
             }
             set
             {
@@ -106,8 +108,8 @@ namespace Entidades_TP3
         {
             string datos;
 
-            datos = String.Format("Nombre:{0}\nApellido:{1}",this.Nombre, this.Apellido);
-            datos = String.Format("{0}\nNacionalidad:{1}\nDNI:{2}\n", datos, this.Nacionalidad, this.DNI);
+            datos = String.Format("NOMBRE COMPLETO: {0}, {1}",this.Apellido, this.Nombre);
+            datos = String.Format("{0}\nNACIONALIDAD:{1}\n", datos, this.Nacionalidad);
             
             return datos;
         }
@@ -119,25 +121,25 @@ namespace Entidades_TP3
             switch(nacionalidad)
             {
                 case ENacionalidad.Argentino:
-                    if (dni >= 1 && dni <= 89999999)
+                    if (dato >= 1 && dato <= 89999999)
                     {
-                        dniValidado = dni;
+                        dniValidado = dato;
                         
                     }
                     else
                     {
-                        throw new NacionalidadInvalidaException();
+                        throw new NacionalidadInvalidaException("La nacionalidad no se condice con el número de DNI.");
                     }
                     break;
 
                 case ENacionalidad.Extranjero:
-                    if(dni >= 90000000 && dni <= 99999999)
+                    if(dato >= 90000000 && dato <= 99999999)
                     {
-                        dniValidado = dni;
+                        dniValidado = dato;
                     }
                     else
                     {
-                        throw new NacionalidadInvalidaException();
+                        throw new NacionalidadInvalidaException("La nacionalidad no se condice con el número de DNI.");
                     }
                     break;
             }
@@ -160,6 +162,9 @@ namespace Entidades_TP3
             {
                 throw new DniInvalidoException();
             }
+
+
+            dniValidado = this.ValidarDni(nacionalidad, dniValidado);
 
             return dniValidado;
 

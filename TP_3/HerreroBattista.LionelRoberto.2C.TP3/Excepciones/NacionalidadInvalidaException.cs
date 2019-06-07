@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades_TP3
 {
-    class NacionalidadInvalidaException : Exception
+    public class NacionalidadInvalidaException : Exception
     {
         public NacionalidadInvalidaException()
             : base()

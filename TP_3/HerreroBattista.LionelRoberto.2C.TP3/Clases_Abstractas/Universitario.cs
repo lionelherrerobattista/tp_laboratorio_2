@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entidades_TP3
+namespace EntidadesAbstractas
 {
     public abstract class Universitario : Persona
     {
@@ -26,7 +26,7 @@ namespace Entidades_TP3
         {
             string datos;
 
-            datos = String.Format("{0}\nLegajo:{1}", base.ToString(), this.legajo);
+            datos = String.Format("{0}\nLEGAJO NÚMERO: {1}", base.ToString(), this.legajo);
 
             return datos;
         }

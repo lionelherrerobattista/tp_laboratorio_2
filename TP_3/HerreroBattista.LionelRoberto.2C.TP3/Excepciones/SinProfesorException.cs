@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades_TP3
 {
-  class SinProfesorException : Exception
+  public class SinProfesorException : Exception
   {
     public SinProfesorException()
-      : base ()
+      : base ("No hay profesor para la clase.")
     {
 
     }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades_TP3
 {
-  class AlumnoRepetidoException : Exception
+  public class AlumnoRepetidoException : Exception
   {
     public AlumnoRepetidoException()
-      : base()
+      : base("Alumno repetido.")
     {
 
     }

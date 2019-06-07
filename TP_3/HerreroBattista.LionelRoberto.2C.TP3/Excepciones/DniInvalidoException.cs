@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades_TP3
 {
-    class DniInvalidoException : Exception
+    public class DniInvalidoException : Exception
     {
         private string mensajeBase;
 
