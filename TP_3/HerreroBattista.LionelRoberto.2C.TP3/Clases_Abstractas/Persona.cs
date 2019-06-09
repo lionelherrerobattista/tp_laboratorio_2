@@ -169,7 +169,7 @@ namespace EntidadesAbstractas
             }
             catch(Exception e)
             {
-                throw new DniInvalidoException(e);
+                throw e;
             }
             
 

@@ -11,27 +11,27 @@ namespace Entidades_TP3
         private string mensajeBase;
 
         public DniInvalidoException()
-            : base("DNI Inválido.")
+            : base()
         {
-
+            this.mensajeBase = "DNI Inválido.";
         }
 
         public DniInvalidoException(Exception e)
             : base("DNI Inválido.", e)
         {
-
+            this.mensajeBase = "DNI Inválido.";
         }
 
         public DniInvalidoException(string message)
             : base(message)
         {
-
+            this.mensajeBase = "DNI Inválido.";
         }
 
         public DniInvalidoException(string message, Exception e)
             : base(message, e)
         {
-
+            this.mensajeBase = "DNI Inválido.";
         }
     }
 }
