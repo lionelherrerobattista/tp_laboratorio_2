@@ -14,7 +14,7 @@ namespace EntidadesAbstractas
         {
             Argentino,
             Extranjero
-        
+
         }
 
         private string nombre;
@@ -51,7 +51,7 @@ namespace EntidadesAbstractas
         /// <param name="dni">Dni de la persona</param>
         /// <param name="nacionalidad">Nacionalidad de la persona</param>
         public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad)
-            : this (nombre, apellido, nacionalidad)
+            : this(nombre, apellido, nacionalidad)
         {
             this.DNI = dni;
         }
@@ -64,7 +64,7 @@ namespace EntidadesAbstractas
         /// <param name="dni">DNI de la persona</param>
         /// <param name="nacionalidad">Nacionalidad de la persona</param>
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad)
-            : this (nombre, apellido, nacionalidad)
+            : this(nombre, apellido, nacionalidad)
         {
             this.StringToDNI = dni;
         }
@@ -149,9 +149,9 @@ namespace EntidadesAbstractas
         {
             string datos;
 
-            datos = String.Format("NOMBRE COMPLETO: {0}, {1}",this.Apellido, this.Nombre);
+            datos = String.Format("NOMBRE COMPLETO: {0}, {1}", this.Apellido, this.Nombre);
             datos = String.Format("{0}\nNACIONALIDAD:{1}\n", datos, this.Nacionalidad);
-            
+
             return datos;
         }
 
@@ -165,13 +165,13 @@ namespace EntidadesAbstractas
         {
             int dniValidado = 0;
 
-            switch(nacionalidad)
+            switch (nacionalidad)
             {
                 case ENacionalidad.Argentino:
                     if (dato >= 1 && dato <= 89999999)
                     {
                         dniValidado = dato;
-                        
+
                     }
                     else
                     {
@@ -180,7 +180,7 @@ namespace EntidadesAbstractas
                     break;
 
                 case ENacionalidad.Extranjero:
-                    if(dato >= 90000000 && dato <= 99999999)
+                    if (dato >= 90000000 && dato <= 99999999)
                     {
                         dniValidado = dato;
                     }
@@ -207,11 +207,11 @@ namespace EntidadesAbstractas
 
             dniAValidar = dato.Replace(".", String.Empty);
 
-            if(dniAValidar.Count() > 8)
+            if (dniAValidar.Count() > 8)
             {
                 throw new DniInvalidoException();
             }
-            else if((Int32.TryParse(dniAValidar, out dniValidado)) == false)
+            else if ((Int32.TryParse(dniAValidar, out dniValidado)) == false)
             {
                 throw new DniInvalidoException();
             }
@@ -220,16 +220,16 @@ namespace EntidadesAbstractas
             {
                 dniValidado = this.ValidarDni(nacionalidad, dniValidado);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
-            
+
 
             return dniValidado;
 
         }
-        
+
         /// <summary>
         /// Valida que los nombres y apellidos contengan caracteres válidos
         /// </summary>
@@ -239,7 +239,7 @@ namespace EntidadesAbstractas
         {
             string datoValidado = "";
 
-            if((dato.All(Char.IsLetter)))
+            if ((dato.All(Char.IsLetter)))
             {
                 datoValidado = dato;
             }

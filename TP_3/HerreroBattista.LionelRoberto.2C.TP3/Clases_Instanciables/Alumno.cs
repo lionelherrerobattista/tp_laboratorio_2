@@ -17,7 +17,7 @@ namespace Entidades_TP3
             Deudor,
             Becado
         }
-        
+
 
         private EClases claseQueToma;
         private EEstadoCuenta estadoCuenta;
@@ -27,7 +27,7 @@ namespace Entidades_TP3
         /// </summary>
         public Alumno()
         {
-            
+
         }
 
 

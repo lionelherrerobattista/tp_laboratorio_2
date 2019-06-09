@@ -19,7 +19,7 @@ namespace Entidades_TP3
         static Profesor()
         {
             Profesor.random = new Random();
-            
+
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace Entidades_TP3
         /// </summary>
         public Profesor()
         {
-            
+
         }
 
         /// <summary>
@@ -53,11 +53,11 @@ namespace Entidades_TP3
             EClases claseUno;
             EClases claseDos;
 
-            claseUno = (EClases) random.Next(0, 4);
+            claseUno = (EClases)random.Next(0, 4);
 
             System.Threading.Thread.Sleep(200);
 
-            claseDos = (EClases) random.Next(0, 4);
+            claseDos = (EClases)random.Next(0, 4);
 
             this.clasesDelDia.Enqueue(claseUno);
             this.clasesDelDia.Enqueue(claseDos);
@@ -72,7 +72,7 @@ namespace Entidades_TP3
             string datos;
 
             datos = String.Format("{0}\n{1}", base.MostrarDatos(), this.ToString());
-           
+
             return datos;
         }
 
@@ -115,9 +115,9 @@ namespace Entidades_TP3
         {
             bool sonIguales = false;
 
-            foreach(EClases claseProfesor in i.clasesDelDia)
+            foreach (EClases claseProfesor in i.clasesDelDia)
             {
-                if(claseProfesor == clase)
+                if (claseProfesor == clase)
                 {
                     sonIguales = true;
                     break;
@@ -136,7 +136,7 @@ namespace Entidades_TP3
             string datos;
 
             datos = String.Format("{0}\n", base.MostrarDatos());
-            datos = String.Format("{0}\n{1}",datos, this.ParticiparEnClase());
+            datos = String.Format("{0}\n{1}", datos, this.ParticiparEnClase());
 
             return datos;
         }

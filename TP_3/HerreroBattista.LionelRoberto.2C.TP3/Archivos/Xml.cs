@@ -12,6 +12,12 @@ namespace Entidades_TP3
 {
     public class Xml<T> : IArchivo<T>
     {
+        /// <summary>
+        /// Guarda los datos recibidos en un archivo .xml
+        /// </summary>
+        /// <param name="archivo">Ruta del archivo</param>
+        /// <param name="datos">Datos a guardar</param>
+        /// <returns>true si guardó el archivo, false si hubo error</returns>
         public bool Guardar(string archivo, T datos)
         {
             bool guardoArchivo = true;
@@ -19,7 +25,7 @@ namespace Entidades_TP3
             XmlTextWriter writer;
             XmlSerializer ser;
 
-            
+
 
             try
             {
@@ -32,18 +38,24 @@ namespace Entidades_TP3
                 writer.Close();
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 guardoArchivo = false;
 
                 throw new ArchivosException(e);
             }
-            
-            
+
+
 
             return guardoArchivo;
         }
 
+        /// <summary>
+        /// Lee los datos de un archivo .xml
+        /// </summary>
+        /// <param name="archivo">Ruta del archivo</param>
+        /// <param name="datos">Datos que leyó</param>
+        /// <returns>true si puedo leer, false si hubo error</returns>
         public bool Leer(string archivo, out T datos)
         {
             bool leyoArchivo = true;
@@ -52,7 +64,7 @@ namespace Entidades_TP3
             XmlTextReader reader;
             XmlSerializer ser;
 
-            
+
             try
             {
                 reader = new XmlTextReader(archivo);
@@ -71,7 +83,7 @@ namespace Entidades_TP3
                 throw new ArchivosException(e);
 
             }
-            
+
 
             return leyoArchivo;
         }

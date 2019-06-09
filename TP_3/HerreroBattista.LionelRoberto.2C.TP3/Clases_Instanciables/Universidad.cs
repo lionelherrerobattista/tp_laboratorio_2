@@ -216,11 +216,11 @@ namespace Entidades_TP3
                 }
             }
 
-            if(nuevaJornada.Alumnos.Count > 0)
+            if (nuevaJornada.Alumnos.Count > 0)
             {
                 g.Jornadas.Add(nuevaJornada);
             }
-            
+
 
             return g;
 
@@ -234,7 +234,7 @@ namespace Entidades_TP3
         /// <returns>Universidad con el alumno agregado</returns>
         public static Universidad operator +(Universidad g, Alumno a)
         {
-            
+
             if (g != a)
             {
                 g.Alumnos.Add(a);

@@ -57,7 +57,7 @@ namespace EntidadesAbstractas
         {
             bool mismoTipo = false;
 
-            if(obj is Universitario)
+            if (obj is Universitario)
             {
                 mismoTipo = true;
             }
@@ -75,7 +75,7 @@ namespace EntidadesAbstractas
         {
             bool sonIguales = false;
 
-            if(pg1.Equals(pg2) && (pg1.legajo == pg2.legajo || pg1.DNI == pg2.DNI))
+            if (pg1.Equals(pg2) && (pg1.legajo == pg2.legajo || pg1.DNI == pg2.DNI))
             {
                 sonIguales = true;
             }
