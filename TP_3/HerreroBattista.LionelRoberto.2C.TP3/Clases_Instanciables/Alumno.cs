@@ -39,6 +39,10 @@ namespace Entidades_TP3
             this.estadoCuenta = estadoCuenta;
         }
 
+        /// <summary>
+        /// Sobrescribe el método MostrarDatos con todos los datos del alumno
+        /// </summary>
+        /// <returns>string con los datos del alumno</returns>
         protected override string MostrarDatos()
         {
             string datos;
@@ -48,6 +52,12 @@ namespace Entidades_TP3
             return datos;
         }
 
+        /// <summary>
+        /// Un alumno es distinto a un EClase si no toma esa clase
+        /// </summary>
+        /// <param name="a">Alumno</param>
+        /// <param name="clase">Eclase</param>
+        /// <returns>true si son distintos, false si no son distintos</returns>
         public static bool operator !=(Alumno a, EClases clase)
         {
             bool sonDistintos = false;
@@ -60,6 +70,13 @@ namespace Entidades_TP3
             return sonDistintos;
         }
 
+        /// <summary>
+        /// Compara si un Alumno es igual a un EClase si ese Alumno toma dicha clase y su estado de cuenta
+        /// no es Deudor
+        /// </summary>
+        /// <param name="a">Alumno</param>
+        /// <param name="clase">Eclase</param>
+        /// <returns>true si son iguales, false si no son iguales</returns>
         public static bool operator ==(Alumno a, EClases clase)
         {
             bool sonIguales = false;
@@ -72,6 +89,10 @@ namespace Entidades_TP3
             return sonIguales;
         }
 
+        /// <summary>
+        /// Retornará la clase que toma el Alumno
+        /// </summary>
+        /// <returns>clase que toma el alumno</returns>
         protected override string ParticiparEnClase()
         {
             string clase;
@@ -81,6 +102,10 @@ namespace Entidades_TP3
             return clase;
         }
 
+        /// <summary>
+        /// Hace públicos los datos del alumno
+        /// </summary>
+        /// <returns>Datos del alumno</returns>
         public override string ToString()
         {
             string datos;

@@ -22,6 +22,10 @@ namespace EntidadesAbstractas
             this.legajo = legajo;
         }
 
+        /// <summary>
+        /// Muestra todos los datos del universitario
+        /// </summary>
+        /// <returns>String con todos los datos del universitario</returns>
         protected virtual string MostrarDatos()
         {
             string datos;
@@ -33,6 +37,11 @@ namespace EntidadesAbstractas
 
         protected abstract string ParticiparEnClase();
 
+        /// <summary>
+        /// Sobrecarga del método Equals que comprueba que un objeto sea del tipo Universitario
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns>true si es del mismo tipo, false si no lo es</returns>
         public override bool Equals(object obj)
         {
             bool mismoTipo = false;
@@ -45,6 +54,12 @@ namespace EntidadesAbstractas
             return mismoTipo;
         }
 
+        /// <summary>
+        /// Compara si dos universitarios tienen el mismo tipo y si su legajo o si su DNI coinciden
+        /// </summary>
+        /// <param name="pg1">Primer universitario a comparar</param>
+        /// <param name="pg2">Segundo universitario a comparar</param>
+        /// <returns>true si son iguales, false si no lo son</returns>
         public static bool operator ==(Universitario pg1, Universitario pg2)
         {
             bool sonIguales = false;
@@ -57,6 +72,14 @@ namespace EntidadesAbstractas
             return sonIguales;
         }
 
+
+
+        /// <summary>
+        /// Compara si dos universitarios son distiontos
+        /// </summary>
+        /// <param name="pg1">Primer universitario a comparar</param>
+        /// <param name="pg2">Segundo universitario a comparar</param>
+        /// <returns>true si son iguales, false si nlo son</returns>
         public static bool operator !=(Universitario pg1, Universitario pg2)
         {
             return !(pg1 == pg2);

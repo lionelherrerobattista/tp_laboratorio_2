@@ -31,6 +31,9 @@ namespace Entidades_TP3
             this._randomClases();
         }
 
+        /// <summary>
+        /// Asigna dos clases al azar al profesor
+        /// </summary>
         private void _randomClases()
         {
             EClases claseUno;
@@ -46,6 +49,10 @@ namespace Entidades_TP3
             this.clasesDelDia.Enqueue(claseDos);
         }
 
+        /// <summary>
+        /// Muestra todos los datos del profesor
+        /// </summary>
+        /// <returns>Datos del profesor</returns>
         protected override string MostrarDatos()
         {
             string datos;
@@ -55,6 +62,10 @@ namespace Entidades_TP3
             return datos;
         }
 
+        /// <summary>
+        /// Muestra el nombre de las clases que da el profesor
+        /// </summary>
+        /// <returns>Clases que da el profesor</returns>
         protected override string ParticiparEnClase()
         {
             string datos;
@@ -69,11 +80,23 @@ namespace Entidades_TP3
             return datos;
         }
 
+        /// <summary>
+        /// Compara si un profesor es distinto a la clase
+        /// </summary>
+        /// <param name="i">Profesor</param>
+        /// <param name="clase">Clase</param>
+        /// <returns>true si el profesor no da esa clase, false si la da</returns>
         public static bool operator !=(Profesor i, EClases clase)
         {
             return !(i == clase);
         }
 
+        /// <summary>
+        /// Compara si un profesor da la clase con la que se lo compara
+        /// </summary>
+        /// <param name="i">Profesor</param>
+        /// <param name="clase">Clase</param>
+        /// <returns>true si el profesor da esa clase, false si no la da</returns>
         public static bool operator ==(Profesor i, EClases clase)
         {
             bool sonIguales = false;
@@ -90,6 +113,10 @@ namespace Entidades_TP3
             return sonIguales;
         }
 
+        /// <summary>
+        /// Hace públicos los datos del profesor
+        /// </summary>
+        /// <returns>Datos del profesor</returns>
         public override string ToString()
         {
             string datos;

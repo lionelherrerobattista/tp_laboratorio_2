@@ -104,6 +104,10 @@ namespace EntidadesAbstractas
             }
         }
 
+        /// <summary>
+        /// Sobrecarga del método ToString() que retorna los datos de las personas
+        /// </summary>
+        /// <returns>Datos de las personas</returns>
         public override string ToString()
         {
             string datos;
@@ -114,6 +118,12 @@ namespace EntidadesAbstractas
             return datos;
         }
 
+        /// <summary>
+        /// Valida que el DNI ingresado esté dentro del rango de números correspondientes con la nacionalidad de la persona
+        /// </summary>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
+        /// <param name="dato">DNI a validar</param>
+        /// <returns>DNI validado</returns>
         private int ValidarDni(ENacionalidad nacionalidad, int dato)
         {
             int dniValidado = 0;
@@ -147,6 +157,12 @@ namespace EntidadesAbstractas
             return dniValidado;
         }
 
+        /// <summary>
+        /// Valida que el DNI no contenga error de formato
+        /// </summary>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
+        /// <param name="dato">DNI validado</param>
+        /// <returns></returns>
         private int ValidarDni(ENacionalidad nacionalidad, string dato)
         {
             string dniAValidar;
@@ -176,7 +192,12 @@ namespace EntidadesAbstractas
             return dniValidado;
 
         }
-
+        
+        /// <summary>
+        /// Valida que los nombres y apellidos contengan caracteres válidos
+        /// </summary>
+        /// <param name="dato">Nombre o apellido</param>
+        /// <returns>Dato validado</returns>
         private string ValidarNombreApellido(string dato)
         {
             string datoValidado = "";
