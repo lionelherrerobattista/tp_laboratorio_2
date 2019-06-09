@@ -13,17 +13,31 @@ namespace Entidades_TP3
         private Queue<EClases> clasesDelDia;
         private static Random random;
 
+        /// <summary>
+        /// Instancia el atributo random
+        /// </summary>
         static Profesor()
         {
             Profesor.random = new Random();
             
         }
 
+        /// <summary>
+        /// Constructor por defecto de la clase Profesor
+        /// </summary>
         public Profesor()
         {
             
         }
 
+        /// <summary>
+        /// Crea un objeto de la clase Profesor
+        /// </summary>
+        /// <param name="id">Id del Profesor</param>
+        /// <param name="nombre">Nombre del Profesor</param>
+        /// <param name="apellido">Apellido del Profesor</param>
+        /// <param name="dni">DNI del Profesor</param>
+        /// <param name="nacionalidad">Nacionalidad del Profesor</param>
         public Profesor(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad)
             : base(id, nombre, apellido, dni, nacionalidad)
         {

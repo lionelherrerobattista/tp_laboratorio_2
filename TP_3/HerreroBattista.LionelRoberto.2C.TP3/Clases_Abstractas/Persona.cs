@@ -22,12 +22,20 @@ namespace EntidadesAbstractas
         private ENacionalidad nacionalidad;
         private int dni;
 
-
+        /// <summary>
+        /// Constructor por defecto de la clase Persona
+        /// </summary>
         public Persona()
         {
 
         }
 
+        /// <summary>
+        /// Crea un objeto de la clase persona
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
         public Persona(string nombre, string apellido, ENacionalidad nacionalidad)
         {
             this.Nombre = nombre;
@@ -35,18 +43,35 @@ namespace EntidadesAbstractas
             this.Nacionalidad = nacionalidad;
         }
 
+        /// <summary>
+        /// Crea un objeto de la clase persona
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="dni">Dni de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
         public Persona(string nombre, string apellido, int dni, ENacionalidad nacionalidad)
             : this (nombre, apellido, nacionalidad)
         {
             this.DNI = dni;
         }
 
+        /// <summary>
+        /// Crea un objeto de la clase persona
+        /// </summary>
+        /// <param name="nombre">Nombre de la persona</param>
+        /// <param name="apellido">Apellido de la persona</param>
+        /// <param name="dni">DNI de la persona</param>
+        /// <param name="nacionalidad">Nacionalidad de la persona</param>
         public Persona(string nombre, string apellido, string dni, ENacionalidad nacionalidad)
             : this (nombre, apellido, nacionalidad)
         {
             this.StringToDNI = dni;
         }
 
+        /// <summary>
+        /// Devuelve o establece el apellido de la persona
+        /// </summary>
         public string Apellido
         {
             get
@@ -60,6 +85,9 @@ namespace EntidadesAbstractas
             }
         }
 
+        /// <summary>
+        /// Devuelve o establece el dni de la persona
+        /// </summary>
         public int DNI
         {
             get
@@ -72,6 +100,9 @@ namespace EntidadesAbstractas
             }
         }
 
+        /// <summary>
+        /// Devuelve o establece la nacionalidad de la persona
+        /// </summary>
         public ENacionalidad Nacionalidad
         {
             get
@@ -84,6 +115,9 @@ namespace EntidadesAbstractas
             }
         }
 
+        /// <summary>
+        /// Devuelve o establece el nombre de la persona
+        /// </summary>
         public string Nombre
         {
             get
@@ -96,6 +130,9 @@ namespace EntidadesAbstractas
             }
         }
 
+        /// <summary>
+        /// Pasa a int el string de DNI
+        /// </summary>
         public string StringToDNI
         {
             set

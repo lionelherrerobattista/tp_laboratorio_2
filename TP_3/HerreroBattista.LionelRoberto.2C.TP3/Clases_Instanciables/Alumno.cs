@@ -22,17 +22,40 @@ namespace Entidades_TP3
         private EClases claseQueToma;
         private EEstadoCuenta estadoCuenta;
 
+        /// <summary>
+        /// Constructor por defecto de la clase Alumno
+        /// </summary>
         public Alumno()
         {
             
         }
 
+
+        /// <summary>
+        /// Crea un objeto de la clase ALumno
+        /// </summary>
+        /// <param name="id">Id del Alumno</param>
+        /// <param name="nombre">Nombre del Alumno</param>
+        /// <param name="apellido">Apellido del Alumno</param>
+        /// <param name="dni">Dni del Alumno</param>
+        /// <param name="nacionalidad">Nacionalidad del Alumno</param>
+        /// <param name="claseQueToma">Clase que toma el Alumno</param>
         public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, EClases claseQueToma)
           : base(id, nombre, apellido, dni, nacionalidad)
         {
             this.claseQueToma = claseQueToma;
         }
 
+        /// <summary>
+        /// Crea un objeto de la clase ALumno
+        /// </summary>
+        /// <param name="id">Id del Alumno</param>
+        /// <param name="nombre">Nombre del Alumno</param>
+        /// <param name="apellido">Apellido del Alumno</param>
+        /// <param name="dni">Dni del Alumno</param>
+        /// <param name="nacionalidad">Nacionalidad del Alumno</param>
+        /// <param name="claseQueToma">Clase que toma el Alumno</param>
+        /// <param name="estadoCuenta">Estado de cuenta del Alumno</param>
         public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, EClases claseQueToma, EEstadoCuenta estadoCuenta)
           : this(id, nombre, apellido, dni, nacionalidad, claseQueToma)
         {

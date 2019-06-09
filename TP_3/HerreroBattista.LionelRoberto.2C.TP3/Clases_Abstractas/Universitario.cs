@@ -10,12 +10,23 @@ namespace EntidadesAbstractas
     {
         private int legajo;
 
+        /// <summary>
+        /// Constructor por defecto de la clase Universitario
+        /// </summary>
         public Universitario()
             : base()
         {
 
         }
 
+        /// <summary>
+        /// Crea un objecto de la clase Universitario
+        /// </summary>
+        /// <param name="legajo">Número de legajo</param>
+        /// <param name="nombre">Nombre del Universitario</param>
+        /// <param name="apellido">Apellido del Universitario</param>
+        /// <param name="dni">Dni del Universitario</param>
+        /// <param name="nacionalidad">Nacionalidad del Universitario</param>
         public Universitario(int legajo, string nombre, string apellido, string dni, ENacionalidad nacionalidad)
             : base(nombre, apellido, dni, nacionalidad)
         {

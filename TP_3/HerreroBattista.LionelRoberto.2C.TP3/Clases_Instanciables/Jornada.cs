@@ -13,11 +13,19 @@ namespace Entidades_TP3
         private EClases clase;
         private Profesor instructor;
 
+        /// <summary>
+        /// Constructor por defecto de la clase Jornada, instancia la lista de Alumnos
+        /// </summary>
         private Jornada()
         {
             this.alumnos = new List<Alumno>();
         }
 
+        /// <summary>
+        /// Crea un objeto de la clase Jornada
+        /// </summary>
+        /// <param name="clase">Clase de la Jornada</param>
+        /// <param name="instructor">Profesor de la Jornada</param>
         public Jornada(EClases clase, Profesor instructor) :
             this()
         {
@@ -26,6 +34,9 @@ namespace Entidades_TP3
 
         }
 
+        /// <summary>
+        /// Devuelve o establece la lista de Alumnos
+        /// </summary>
         public List<Alumno> Alumnos
         {
             get
@@ -38,6 +49,9 @@ namespace Entidades_TP3
             }
         }
 
+        /// <summary>
+        /// Devuelve o establece la clase
+        /// </summary>
         public EClases Clase
         {
             get
@@ -50,6 +64,9 @@ namespace Entidades_TP3
             }
         }
 
+        /// <summary>
+        /// Devuelve el Profesor de la Jornada
+        /// </summary>
         public Profesor Instructor
         {
             get
@@ -62,6 +79,11 @@ namespace Entidades_TP3
             }
         }
 
+        /// <summary>
+        /// Guarda los datos de la Jornada en un archivo de texto
+        /// </summary>
+        /// <param name="jornada">Jornada a guardar</param>
+        /// <returns>true si guardó, false si hubo error</returns>
         public static bool Guardar(Jornada jornada)
         {
             string archivo;
@@ -73,6 +95,10 @@ namespace Entidades_TP3
             return jornadaATexto.Guardar(archivo, jornada.ToString());
         }
 
+        /// <summary>
+        /// Retorna los datos de la Jornada como texto
+        /// </summary>
+        /// <returns>Datos de la jornada</returns>
         public static string Leer()
         {
             string archivo;
@@ -90,11 +116,23 @@ namespace Entidades_TP3
             return datos;
         }
 
+        /// <summary>
+        /// Compara si un alumno no participa de la clase
+        /// </summary>
+        /// <param name="j">Jornada</param>
+        /// <param name="a">Alumno</param>
+        /// <returns>true si el alumno no participa, false si participa</returns>
         public static bool operator !=(Jornada j, Alumno a)
         {
             return !(j == a);
         }
 
+        /// <summary>
+        /// Agrega alumnos a la clase validando que no estén previamente cargados
+        /// </summary>
+        /// <param name="j">Jornada donde se guarda el alumno</param>
+        /// <param name="a">Alumno a guardar</param>
+        /// <returns>Jornada con el alumno cargado</returns>
         public static Jornada operator +(Jornada j, Alumno a)
         {
             bool estaAlumno = false;
@@ -117,6 +155,12 @@ namespace Entidades_TP3
             return j;
         }
 
+        /// <summary>
+        /// Comprueba si el Alumno participa de la clase
+        /// </summary>
+        /// <param name="j">Jornada</param>
+        /// <param name="a">Alumno</param>
+        /// <returns>true si el alumno participa, false si no participa</returns>
         public static bool operator ==(Jornada j, Alumno a)
         {
             bool sonIguales = false;
@@ -130,6 +174,10 @@ namespace Entidades_TP3
             return sonIguales;
         }
 
+        /// <summary>
+        /// Muestra los datos de la Jornada
+        /// </summary>
+        /// <returns>Datos de la Jornada</returns>
         public override string ToString()
         {
             string datos;
