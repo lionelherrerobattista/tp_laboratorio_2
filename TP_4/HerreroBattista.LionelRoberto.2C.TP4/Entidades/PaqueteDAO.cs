@@ -60,7 +60,7 @@ namespace Entidades
 
                 consultaRealizada = false;
 
-                InformarUsuario.Invoke(e.Message, eventArgs);
+                InformarUsuario.Invoke(e, eventArgs);
 
             }
             finally

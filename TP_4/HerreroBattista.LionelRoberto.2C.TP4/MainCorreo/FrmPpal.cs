@@ -21,6 +21,8 @@ namespace MainCorreo
             InitializeComponent();
 
             this.correo = new Correo();
+
+            PaqueteDAO.InformarUsuario += this.mensajeExcepcionThread;
         }
 
         private void ActualizarEstados()
@@ -99,8 +101,6 @@ namespace MainCorreo
 
             p.InformarEstado += this.paq_InformaEstado;
 
-            PaqueteDAO.InformarUsuario += this.mensajeExcepcionThread;
-
             try
             {
                 correo = correo + p;
@@ -120,7 +120,7 @@ namespace MainCorreo
 
         private void mensajeExcepcionThread(object sender, EventArgs e)
         {
-            MessageBox.Show((string)sender);
+            MessageBox.Show(((Exception)sender).Message);
         }
 
        
