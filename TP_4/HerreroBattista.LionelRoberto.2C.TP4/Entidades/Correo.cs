@@ -63,6 +63,7 @@ namespace Entidades
             string paquete;
             bool primeraIteracion = true;
 
+
             foreach(Paquete p in ((Correo)elementos).Paquetes)
             {
                 paquete = String.Format("{0} para {1} ({2})", p.TrackingID,

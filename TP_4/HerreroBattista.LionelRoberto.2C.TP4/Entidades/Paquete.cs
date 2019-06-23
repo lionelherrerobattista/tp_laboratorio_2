@@ -118,6 +118,8 @@ namespace Entidades
         {
             string datos;
 
+            
+
             datos = String.Format("{0} para {1}", ((Paquete)elemento).TrackingID,
                 ((Paquete)elemento).DireccionEntrega);
 

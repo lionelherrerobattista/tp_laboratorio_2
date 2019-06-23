@@ -16,6 +16,9 @@ namespace MainCorreo
     {
         private Correo correo;
 
+        /// <summary>
+        /// Constructor por defecto del formulario
+        /// </summary>
         public FrmPpal()
         {
             InitializeComponent();
@@ -25,6 +28,9 @@ namespace MainCorreo
             PaqueteDAO.InformarUsuario += this.mensajeExcepcionThread;
         }
 
+        /// <summary>
+        /// Recorre la lista de paquetes agregando cada uno de ellos en la lista que corresponda
+        /// </summary>
         private void ActualizarEstados()
         {
             lstEstadoIngresado.Items.Clear();
@@ -49,11 +55,21 @@ namespace MainCorreo
 
         }
 
+        /// <summary>
+        /// Cierra el formulario y los hilos abiertos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmPpal_FormClosing(object sender, FormClosingEventArgs e)
         {
             correo.FinEntregas();
         }
 
+        /// <summary>
+        /// Muestra la información del paquete y la guarda en un archivo .txt en el escritorio
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="elemento"></param>
         private void MostrarInformacion<T>(IMostrar<T> elemento)
         {
             string datos;
@@ -78,11 +94,21 @@ namespace MainCorreo
             }
         }
 
+        /// <summary>
+        /// Muestra la información del paquete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mostrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.MostrarInformacion<Paquete>((IMostrar<Paquete>)lstEstadoEntregado.SelectedItem);
         }
 
+        /// <summary>
+        /// Informa el estado del paquete
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void paq_InformaEstado(object sender, EventArgs e)
         {
             if (this.InvokeRequired)
@@ -95,6 +121,11 @@ namespace MainCorreo
             }
         }
 
+        /// <summary>
+        /// Agrega un paquete a la lista de Correo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             Paquete p = new Paquete(txtDireccion.Text, mtxtTrackingID.Text);
@@ -113,11 +144,21 @@ namespace MainCorreo
             this.ActualizarEstados();
         }
 
+        /// <summary>
+        /// Muestra la información de la lista de paquetes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
             this.MostrarInformacion<List<Paquete>>((IMostrar<List<Paquete>>)correo);
         }
 
+        /// <summary>
+        /// En caso de que no se pueda guardar en la Base de Datos, muestra el mensaje de error de la excepción que se produce
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void mensajeExcepcionThread(object sender, EventArgs e)
         {
             MessageBox.Show(((Exception)sender).Message);
