@@ -34,7 +34,7 @@ namespace Test_Correo
             {
                 correoTest += p1;
             }
-            catch(Exception e1)
+            catch(TrackingIdRepetidoException e1)
             {
                 Assert.Fail();
 
@@ -45,7 +45,7 @@ namespace Test_Correo
             {
                 correoTest += p2;
             }
-            catch (Exception e2)
+            catch (TrackingIdRepetidoException e2)
             {
                 lanzoExcepcion = true;
 
