@@ -18,7 +18,7 @@ namespace Entidades
         /// <returns>Resultado de la operación</returns>
         public static double Operar(Numero num1, Numero num2, string operador)
         {
-            double resultado = 0;
+            double resultado = 0; 
 
             operador = Calculadora.ValidarOperador(operador);
 

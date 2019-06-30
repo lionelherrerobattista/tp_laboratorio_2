@@ -11,19 +11,7 @@ namespace Entidades
         private double numero;
 
         /// <summary>
-        /// Asigna al atributo numero el parámetro que se le pasa al método
-        /// </summary>
-        /// <param name="numero">valor que se va a asignar al atributo número</param>
-        private void SetNumero(string numero)
-        {
-            this.numero = ValidarNumero(numero);
-        }
-
-        //Constructores
-        //
-        /// <summary>
-        /// Constructor por defecto. Crea un objeto del tipo Numero,
-        /// asigna valor 0 al atributo numero
+        /// Crea un objeto del tipo Numero
         /// </summary>
         public Numero() : this(0)
         {
@@ -31,24 +19,41 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Construye un objeto de tipo Numero con el atributo asignado
-        ///  a partir del valor del parámetro double que se le pasa
+        /// Crea un objeto de tipo Numero
         /// </summary>
-        /// <param name="numero">valor que se le va a asignar al atributo numero</param>
+        /// <param name="numero">valor atributo numero</param>
         public Numero(double numero)
         {
             this.numero = numero;
         }
 
         /// <summary>
-        /// Construye un objeto del tipo número
+        /// Crea un objeto del tipo número
         /// </summary>
-        /// <param name="strNumero">valor que se le va a asignar al parámetro numero</param>
+        /// <param name="strNumero">valor atributo numero</param>
         public Numero(string strNumero)
         {
-            this.SetNumero(strNumero);
+           
+            this.SetNumero = strNumero;
         }
 
+
+
+        /// <summary>
+        /// Propiedad que asigna el valor a número a partir de un string
+        /// luego de validarlo
+        /// </summary>
+        private string SetNumero
+        {
+            set
+            {
+                this.numero = ValidarNumero(value);
+            }
+            
+        }
+
+        
+        
 
         /// <summary>
         /// Convierte un número binario a decimal
@@ -65,7 +70,7 @@ namespace Entidades
 
             for (i = 0; i < binario.Length; i++)
             {
-                if (binario[i] != '1' && binario[i] != '0')//no es binario
+                if (binario[i] != '1' && binario[i] != '0')
                 {
                     esBinario = false;
                     break;
@@ -124,14 +129,7 @@ namespace Entidades
 
                 } while (numero > 1);
 
-                if (numero == 0)
-                {
-                    binario += "0";
-                }
-                else
-                {
-                    binario += "1";
-                }
+                binario += numero.ToString();
 
 
                 for (i = binario.Length - 1; i >= 0; i--)
@@ -140,7 +138,7 @@ namespace Entidades
                 }
 
             }
-            else if (numero == 0 || numero == 1)//si es 0 o 1
+            else if (numero == 0 || numero == 1)
             {
                 retorno = numero.ToString();
             }
@@ -239,8 +237,6 @@ namespace Entidades
             return resultado;
         }
 
-        //Validaciones
-        //
 
         /// <summary>
         /// Valida que la cadena ingresada sea un número válido
